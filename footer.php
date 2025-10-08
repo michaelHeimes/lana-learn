@@ -8,7 +8,8 @@
  *
  * @package lana
  */
-
+ $form_id = get_field('newsletter_form_id', 'option') ?? null;
+ $newsletter_signup_message = get_field('newsletter_signup_message', 'option') ?? null;
 ?>
 
 				<footer id="colophon" class="site-footer black-bg">
@@ -59,8 +60,12 @@
 										<?php endif;?>
 									</div>
 									<?php endif;?>
-									<?php if( !empty( get_field('newsletter_form_id', 'option') ) ) {
-										$form_id = get_field('newsletter_form_id', 'option');
+									<?php if( $newsletter_signup_message ):?>
+										<div class="newsletter-message">
+											<?=wp_kses_post($newsletter_signup_message);?>
+										</div>
+									<?php endif;?>
+									<?php if( $form_id ) {
 										gravity_form( $form_id, false, false, false, '', true, 12 );
 									};?>
 								</div>

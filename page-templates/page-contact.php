@@ -17,7 +17,7 @@ $fields = get_fields();
 		
 				<article id="post-<?php the_ID(); ?>" <?php post_class('module-padding first'); ?>>
 					<div class="grid-container">
-						<div class="grid-x grid-padding-x">
+						<div class="grid-x grid-padding-x<?php if( empty( $fields['form_id'] ) ):?> align-center<?php endif;?>">
 							
 							<?php if( !empty($fields['heading']) ||  !empty($fields['copy']) ||  !empty($fields['phone_number']) ||  !empty($fields['email_address']) ||  !empty( get_field('locations_global', 'option') ) ):?>
 							<div class="left entry-content cell small-12 tablet-6 large-4 large-offset-1">
